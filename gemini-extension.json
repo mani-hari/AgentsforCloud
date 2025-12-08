@@ -1,0 +1,8 @@
+{
+  "name": "cloudsql-easy-connect",
+  "version": "1.0.0",
+  "description": "Cloud SQL Easy Connect - helps connect applications to Cloud SQL databases",
+  "contextFileName": "GEMINI.md",
+  "mcpServers": {},
+  "excludeTools": []
+}

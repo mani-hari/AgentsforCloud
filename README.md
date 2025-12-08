@@ -59,14 +59,66 @@ This tool guides users through a structured workflow to establish connectivity b
 - Appropriate IAM permissions for Cloud SQL and Compute Engine
 - Active GCP project with billing enabled
 
-## Quick Start
+## Installation
+
+### Option 1: Gemini CLI Extension (Recommended)
 
 ```bash
-# For Gemini CLI, register as a tool:
-gemini tools add cloudsql-connect ./instructions/orchestrator.md
+# Install from local directory
+gemini extensions install /path/to/AgentsforCloud
 
-# Or use directly with natural language:
+# Or link for development (auto-updates on changes)
+gemini extensions link /path/to/AgentsforCloud
+
+# Or install from GitHub
+gemini extensions install https://github.com/YOUR_ORG/AgentsforCloud
+```
+
+After installation, just ask Gemini CLI:
+```
 "Help me connect my GCE VM to Cloud SQL database"
+```
+
+### Option 2: Tools API (settings.json)
+
+Add to `~/.gemini/settings.json`:
+
+```json
+{
+  "tools": {
+    "discoveryCommand": "cat /path/to/AgentsforCloud/tools-discovery.json",
+    "callCommand": "bash /path/to/AgentsforCloud/tools-executor.sh"
+  }
+}
+```
+
+### Option 3: Claude Code / Other AI Agents
+
+Simply reference the instruction files in your prompt:
+```
+Read the instructions from ./instructions/orchestrator.md and help me connect to Cloud SQL
+```
+
+### Option 4: Direct Use (Copy/Paste)
+
+Open the relevant instruction file and follow the steps manually:
+- [GCE VM + Private IP](./instructions/gce-vm-private-ip.md)
+- [GCE VM + Public IP](./instructions/gce-vm-public-ip.md)
+- [Local Laptop](./instructions/local-laptop.md)
+
+## File Structure
+
+```
+AgentsforCloud/
+├── README.md                    # This file
+├── GEMINI.md                    # Context file for Gemini CLI
+├── gemini-extension.json        # Extension manifest
+└── instructions/
+    ├── orchestrator.md          # Main workflow logic
+    ├── gce-vm-private-ip.md     # GCE + Private IP guide
+    ├── gce-vm-public-ip.md      # GCE + Public IP guide
+    ├── local-laptop.md          # Local dev guide
+    └── common-utilities.md      # Shared utilities
 ```
 
 ## Goal
