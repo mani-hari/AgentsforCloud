@@ -1,44 +1,40 @@
 # Cloud SQL Easy Connect - Gemini CLI Extension
 
-Helps you connect your Cloud SQL database to GCE VMs, local laptops, and other compute sources.
+An AI assistant that guides you through connecting your Cloud SQL database to GCE VMs or local development machines.
 
-## Installation (Choose One)
+**Note:** This extension provides guidance - it tells you what commands to run, and you run them. It does not execute commands automatically.
 
-### Option A: Install from GitHub (Recommended)
+## Installation
+
 ```bash
 gemini extensions install https://github.com/manigoogle/AgentsforCloud
 ```
 
-### Option B: Install from Local Folder
-```bash
-# Clone the repo first
-git clone https://github.com/manigoogle/AgentsforCloud.git
-
-# Install the extension
-gemini extensions install ./AgentsforCloud
-```
-
 ## Usage
 
-After installation, just ask:
+Start Gemini CLI and ask for help:
 
+```bash
+gemini
 ```
-gemini "Help me connect my GCE VM to Cloud SQL"
+
+Then type:
+```
+Help me connect my GCE VM to Cloud SQL
 ```
 
 Or:
-
 ```
-gemini "I need to connect my local laptop to Cloud SQL for development"
+I need to connect my local laptop to Cloud SQL for development
 ```
 
-## What It Does
+## How It Works
 
-1. Lists your Cloud SQL instances
-2. Lists your GCE VMs (if applicable)
-3. Checks network compatibility
-4. Guides you through the connection
-5. Generates code for your programming language
+1. The assistant asks about your setup (GCE VM or laptop, PostgreSQL or MySQL)
+2. It tells you what `gcloud` commands to run
+3. You run the commands and share the output
+4. It guides you through the connection process
+5. It provides code snippets for your programming language
 
 ## Verify Installation
 
@@ -46,10 +42,15 @@ gemini "I need to connect my local laptop to Cloud SQL for development"
 gemini extensions list
 ```
 
-You should see `cloudsql-easy-connect` in the list.
+Look for `cloudsql-easy-connect` in the output.
 
 ## Uninstall
 
 ```bash
 gemini extensions uninstall cloudsql-easy-connect
 ```
+
+## Files
+
+- `gemini-extension.json` - Extension manifest
+- `GEMINI.md` - Instructions the AI follows to help you
