@@ -87,7 +87,7 @@ User prompts:
 brew install cloud-sql-proxy
 
 # Or download directly
-curl -o cloud-sql-proxy https://storage.googleapis.com/cloud-sql-connectors/cloud-sql-proxy/v2.8.0/cloud-sql-proxy.darwin.amd64
+curl -o cloud-sql-proxy https://storage.googleapis.com/cloud-sql-connectors/cloud-sql-proxy/v2.19.0/cloud-sql-proxy.darwin.amd64
 chmod +x cloud-sql-proxy
 sudo mv cloud-sql-proxy /usr/local/bin/
 ```
@@ -96,12 +96,12 @@ sudo mv cloud-sql-proxy /usr/local/bin/
 
 ```bash
 # Download for Linux AMD64
-curl -o cloud-sql-proxy https://storage.googleapis.com/cloud-sql-connectors/cloud-sql-proxy/v2.8.0/cloud-sql-proxy.linux.amd64
+curl -o cloud-sql-proxy https://storage.googleapis.com/cloud-sql-connectors/cloud-sql-proxy/v2.19.0/cloud-sql-proxy.linux.amd64
 chmod +x cloud-sql-proxy
 sudo mv cloud-sql-proxy /usr/local/bin/
 
 # For Linux ARM64
-curl -o cloud-sql-proxy https://storage.googleapis.com/cloud-sql-connectors/cloud-sql-proxy/v2.8.0/cloud-sql-proxy.linux.arm64
+curl -o cloud-sql-proxy https://storage.googleapis.com/cloud-sql-connectors/cloud-sql-proxy/v2.19.0/cloud-sql-proxy.linux.arm64
 chmod +x cloud-sql-proxy
 sudo mv cloud-sql-proxy /usr/local/bin/
 ```
@@ -110,7 +110,7 @@ sudo mv cloud-sql-proxy /usr/local/bin/
 
 ```powershell
 # Download for Windows
-Invoke-WebRequest -Uri "https://storage.googleapis.com/cloud-sql-connectors/cloud-sql-proxy/v2.8.0/cloud-sql-proxy.x64.exe" -OutFile "cloud-sql-proxy.exe"
+Invoke-WebRequest -Uri "https://storage.googleapis.com/cloud-sql-connectors/cloud-sql-proxy/v2.19.0/cloud-sql-proxy.x64.exe" -OutFile "cloud-sql-proxy.exe"
 
 # Add to PATH or move to a directory in PATH
 Move-Item cloud-sql-proxy.exe C:\Windows\System32\

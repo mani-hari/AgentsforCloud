@@ -355,7 +355,7 @@ GCP_REGION=us-central1
 version: '3.8'
 services:
   cloud-sql-proxy:
-    image: gcr.io/cloud-sql-connectors/cloud-sql-proxy:2.8.0
+    image: gcr.io/cloud-sql-connectors/cloud-sql-proxy:2.19.0
     command:
       - "--port=5432"
       - "${CLOUD_SQL_CONNECTION_NAME}"

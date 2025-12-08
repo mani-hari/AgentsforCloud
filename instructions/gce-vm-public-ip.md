@@ -112,7 +112,7 @@ gcloud compute ssh ${VM_NAME} --zone=${VM_ZONE}
 
 ```bash
 # Download the Cloud SQL Auth Proxy
-curl -o cloud-sql-proxy https://storage.googleapis.com/cloud-sql-connectors/cloud-sql-proxy/v2.8.0/cloud-sql-proxy.linux.amd64
+curl -o cloud-sql-proxy https://storage.googleapis.com/cloud-sql-connectors/cloud-sql-proxy/v2.19.0/cloud-sql-proxy.linux.amd64
 
 # Make it executable
 chmod +x cloud-sql-proxy

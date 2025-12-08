@@ -79,27 +79,14 @@ After installation, just ask Gemini CLI:
 "Help me connect my GCE VM to Cloud SQL database"
 ```
 
-### Option 2: Tools API (settings.json)
-
-Add to `~/.gemini/settings.json`:
-
-```json
-{
-  "tools": {
-    "discoveryCommand": "cat /path/to/AgentsforCloud/tools-discovery.json",
-    "callCommand": "bash /path/to/AgentsforCloud/tools-executor.sh"
-  }
-}
-```
-
-### Option 3: Claude Code / Other AI Agents
+### Option 2: Claude Code / Other AI Agents
 
 Simply reference the instruction files in your prompt:
 ```
 Read the instructions from ./instructions/orchestrator.md and help me connect to Cloud SQL
 ```
 
-### Option 4: Direct Use (Copy/Paste)
+### Option 3: Direct Use (Copy/Paste)
 
 Open the relevant instruction file and follow the steps manually:
 - [GCE VM + Private IP](./instructions/gce-vm-private-ip.md)
