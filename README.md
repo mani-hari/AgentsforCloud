@@ -1,113 +1,55 @@
-# Cloud SQL Easy Connect - Agent Tool
+# Cloud SQL Easy Connect - Gemini CLI Extension
 
-A natural language tool for Gemini CLI and other AI agents to help users connect their Cloud SQL databases to various compute sources.
+Helps you connect your Cloud SQL database to GCE VMs, local laptops, and other compute sources.
 
-## Overview
+## Installation (Choose One)
 
-This tool guides users through a structured workflow to establish connectivity between Cloud SQL instances and application compute resources (GCE VMs, local laptops, GKE, Cloud Run, App Engine, etc.).
-
-## Architecture
-
-```
-┌─────────────────────────────────────────────────────────────────┐
-│                    Cloud SQL Easy Connect                        │
-├─────────────────────────────────────────────────────────────────┤
-│  Step 1: Select Compute Source Type                             │
-│  ├── GCE VM                                                     │
-│  ├── Local Laptop (Development)                                 │
-│  ├── GKE Container                                              │
-│  ├── Cloud Run                                                  │
-│  └── App Engine                                                 │
-├─────────────────────────────────────────────────────────────────┤
-│  Step 2: Select Specific Instance & Network Validation          │
-│  ├── Fetch instances from current project                       │
-│  ├── Validate network compatibility                             │
-│  ├── Check IP configuration (Private/Public)                    │
-│  └── Provide remediation if incompatible                        │
-├─────────────────────────────────────────────────────────────────┤
-│  Step 3: Connection Test                                        │
-│  ├── SSH into compute resource (if applicable)                  │
-│  ├── Install database client                                    │
-│  └── Test connectivity to Cloud SQL                             │
-├─────────────────────────────────────────────────────────────────┤
-│  Step 4: Generate Connection Code                               │
-│  ├── Ask programming language                                   │
-│  ├── Generate connection string                                 │
-│  └── Provide connector library code                             │
-└─────────────────────────────────────────────────────────────────┘
+### Option A: Install from GitHub (Recommended)
+```bash
+gemini extensions install https://github.com/manigoogle/AgentsforCloud
 ```
 
-## Instruction Files
+### Option B: Install from Local Folder
+```bash
+# Clone the repo first
+git clone https://github.com/manigoogle/AgentsforCloud.git
 
-| File | Description |
-|------|-------------|
-| [gce-vm-private-ip.md](./instructions/gce-vm-private-ip.md) | Connect GCE VM via Private IP |
-| [gce-vm-public-ip.md](./instructions/gce-vm-public-ip.md) | Connect GCE VM via Public IP |
-| [local-laptop.md](./instructions/local-laptop.md) | Connect from Local Development Machine |
-| [common-utilities.md](./instructions/common-utilities.md) | Shared utilities and helpers |
-| [orchestrator.md](./instructions/orchestrator.md) | Main tool orchestration logic |
+# Install the extension
+gemini extensions install ./AgentsforCloud
+```
 
-## Supported Databases
+## Usage
 
-- Cloud SQL for PostgreSQL
-- Cloud SQL for MySQL
-- Cloud SQL for SQL Server
+After installation, just ask:
 
-## Prerequisites
+```
+gemini "Help me connect my GCE VM to Cloud SQL"
+```
 
-- Google Cloud SDK (`gcloud`) installed and configured
-- Appropriate IAM permissions for Cloud SQL and Compute Engine
-- Active GCP project with billing enabled
+Or:
 
-## Installation
+```
+gemini "I need to connect my local laptop to Cloud SQL for development"
+```
 
-### Option 1: Gemini CLI Extension (Recommended)
+## What It Does
+
+1. Lists your Cloud SQL instances
+2. Lists your GCE VMs (if applicable)
+3. Checks network compatibility
+4. Guides you through the connection
+5. Generates code for your programming language
+
+## Verify Installation
 
 ```bash
-# Install from local directory
-gemini extensions install /path/to/AgentsforCloud
-
-# Or link for development (auto-updates on changes)
-gemini extensions link /path/to/AgentsforCloud
-
-# Or install from GitHub
-gemini extensions install https://github.com/YOUR_ORG/AgentsforCloud
+gemini extensions list
 ```
 
-After installation, just ask Gemini CLI:
+You should see `cloudsql-easy-connect` in the list.
+
+## Uninstall
+
+```bash
+gemini extensions uninstall cloudsql-easy-connect
 ```
-"Help me connect my GCE VM to Cloud SQL database"
-```
-
-### Option 2: Claude Code / Other AI Agents
-
-Simply reference the instruction files in your prompt:
-```
-Read the instructions from ./instructions/orchestrator.md and help me connect to Cloud SQL
-```
-
-### Option 3: Direct Use (Copy/Paste)
-
-Open the relevant instruction file and follow the steps manually:
-- [GCE VM + Private IP](./instructions/gce-vm-private-ip.md)
-- [GCE VM + Public IP](./instructions/gce-vm-public-ip.md)
-- [Local Laptop](./instructions/local-laptop.md)
-
-## File Structure
-
-```
-AgentsforCloud/
-├── README.md                    # This file
-├── GEMINI.md                    # Context file for Gemini CLI
-├── gemini-extension.json        # Extension manifest
-└── instructions/
-    ├── orchestrator.md          # Main workflow logic
-    ├── gce-vm-private-ip.md     # GCE + Private IP guide
-    ├── gce-vm-public-ip.md      # GCE + Public IP guide
-    ├── local-laptop.md          # Local dev guide
-    └── common-utilities.md      # Shared utilities
-```
-
-## Goal
-
-Enable users to connect their application to Cloud SQL within **5-10 minutes** of creating their instance.

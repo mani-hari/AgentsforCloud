@@ -1,13 +1,5 @@
 {
   "name": "cloudsql-easy-connect",
   "version": "1.0.0",
-  "description": "Cloud SQL Easy Connect - helps connect applications to Cloud SQL databases",
-  "contextFileName": "GEMINI.md",
-  "mcpServers": {
-    "cloudsql": {
-      "command": "node",
-      "args": ["mcp-server.js"]
-    }
-  },
-  "excludeTools": []
+  "description": "Connect Cloud SQL to GCE VMs and other compute sources"
 }
