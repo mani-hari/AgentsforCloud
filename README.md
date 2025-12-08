@@ -3,20 +3,25 @@
 An AI-powered Gemini CLI extension that automates the steps to connect a Cloud SQL instance to a compute destination, starting with GCE VMs. It authenticates, lists resources, validates networking, and (with your approval) runs the necessary `gcloud` commands for you.
 
 ## Quick Start (Google Cloud Shell)
-1. Open Cloud Shell (already has `gcloud` and `gemini` preinstalled in most environments).
-2. Install the extension from this repository:
+Follow these steps in Cloud Shell to register and use the extension.
+
+1. **Verify Gemini CLI exists (install if missing):**
+   ```bash
+   gemini --version || gcloud components install gemini
+   ```
+2. **Install the extension from this repo (registers the tool):**
    ```bash
    gemini extensions install https://github.com/manigoogle/AgentsforCloud
    ```
-3. Confirm it registered correctly:
+3. **Confirm it registered correctly:**
    ```bash
    gemini extensions list | grep cloudsql-gce-connector
    ```
-4. Launch Gemini CLI and invoke the extension:
+4. **Run Gemini CLI with the extension enabled:**
    ```bash
    gemini --extensions cloudsql-gce-connector
    ```
-5. Ask for the guided flow, e.g.:
+5. **Start the guided flow:**
    ```
    Help me connect my GCE VM to Cloud SQL
    ```
