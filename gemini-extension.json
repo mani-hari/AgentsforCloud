@@ -1,5 +1,5 @@
 {
-  "name": "cloudsql-easy-connect",
-  "version": "1.0.0",
-  "description": "Connect Cloud SQL to GCE VMs and other compute sources"
+  "name": "cloudsql-gce-connector",
+  "version": "2.0.0",
+  "description": "Gemini CLI extension that guides users through Cloud SQL selection, GCE VM targeting, network validation, and connection code generation"
 }
