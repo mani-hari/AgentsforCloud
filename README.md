@@ -43,4 +43,5 @@ gemini extensions uninstall cloudsql-gce-connector
 
 ## Files
 - `gemini-extension.json` - Extension manifest
-- `GEMINI.md` - Detailed behavior/instructions the AI follows
+- `GEMINI.md` - Detailed behavior/instructions for Cloud SQL ↔ GCE connectivity
+- `REDIS_MEMSTORE.md` - Stepwise agent flow to add a Redis Memorystore cache alongside Cloud SQL
